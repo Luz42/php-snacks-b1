@@ -19,7 +19,16 @@ $mail = $_GET['mail'];
 $age = $_GET['age'];
 $result = '';
 
-if(strlen($name) > 3){
+
+//effettuato il doppio controllo sulla mail
+if(strpos($mail, '@') && strpos($mail, '.')){
+    $verifiedMail = true;
+}
+else
+    $verifiedMail = false;
+
+//verificate le 3 condizioni che restituiscono il risultato
+if(strlen($name) > 3 && $verifiedMail && is_numeric($age)){
     $result = 'Accesso riuscito';
 }
 else
